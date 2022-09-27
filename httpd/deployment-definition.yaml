@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployed
+metadata: 
+  name: deployed-deployment
+  labels:
+    app: deployed
+    type: front-end
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: front-end
+  template:
+    metadata:
+      name: deployed-pod
+      labels:
+        app: deployed
+        type: front-end
+    spec:
+      containers:
+       - name: deployed-container
+         image: deployed
+
